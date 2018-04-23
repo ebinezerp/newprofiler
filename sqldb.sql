@@ -6,14 +6,14 @@ show tables;
 
 select * from employee;
 
-delete from employee where employee_Id=32055;
+delete from employee where employee_Id=32057;
 
 desc employee;
 
 drop table employee;
 
-select * from personalData;
+select * from skill;
 
-desc personalData;
+desc skill;
 
-drop table personalData;
+drop table skill;

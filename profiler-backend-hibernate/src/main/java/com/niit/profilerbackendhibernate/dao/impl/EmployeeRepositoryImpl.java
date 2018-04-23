@@ -85,4 +85,19 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		return true;
 	}
 
+	public List<Employee> findBySkill(String skill) {
+		
+		return sessionFactory.getCurrentSession().createQuery("From Employee where employee_Id IN (select employee_employee_Id From Skill where skillName like %:skillName%)",Employee.class)
+		.setParameter("skillName", skill)
+		.getResultList();
+		
+	}
+
+	public List<Employee> findByCertification(String certificationName) {
+		
+		return sessionFactory.getCurrentSession().createQuery("From Employee where employee_Id IN (select employee_employee_Id from Certification where certificationName like %:name%)",Employee.class)
+				.setParameter("name", certificationName)
+				.getResultList();
+	}
+
 }

@@ -14,5 +14,8 @@ public interface EmployeeService {
 	public List<Employee> getUnApprovedEmployees();
 	public List<Employee> getApprovedEmployees();
 	public List<Employee> getRejectedEmployees();
+	public List<Employee> getEmployeesBySkill(String skill);
+	public List<Employee> getEmployeesByCertification(String certificationName);
 	public boolean updateStatus(String status,Integer employee_Id);
+	
 }

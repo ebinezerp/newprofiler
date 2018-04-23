@@ -91,12 +91,34 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	public boolean update(Employee employee) {
-		// TODO Auto-generated method stub
+		
+		
 		try {
 			return employeeRepository.update(employee);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return false;
+		}
+	}
+
+	public List<Employee> getEmployeesBySkill(String skill) {
+		
+		try {
+			return employeeRepository.findBySkill(skill);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public List<Employee> getEmployeesByCertification(String certificationName) {
+		
+		try {
+			return employeeRepository.findByCertification(certificationName);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
 		}
 	}
 

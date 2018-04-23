@@ -3,6 +3,8 @@ package com.niit.profilerbackendhibernate.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.util.Date;
+
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
@@ -365,7 +367,7 @@ public class EmployeeTest {
 	@Test
 	public void testEmployeeGetEmployee()
 	{
-		assertEquals("testEmployeeGetEmployee failed",employee,employeeService.getEmployee(employee.getEmployee_Id()));
+		assertEquals("testEmployeeGetEmployee failed","ebinezer",employeeService.getEmployee(employee.getEmployee_Id()).getUsername());
 	}
 	
 	@Test
@@ -375,11 +377,23 @@ public class EmployeeTest {
 	}
 	
 	
-	/*@Test
-	public void testGetEmployeeByName()
+	@Test
+	public void testUpdateEmployee()
 	{
-		assertEquals("testEmployeeGetEmployee failed",employee,employeeService);
-	}*/
+		Employee emp=employeeService.getEmployee(employee.getEmployee_Id());
+		
+		emp.setFirstname("ebinezer");
+		emp.setLastname("perumala");
+		emp.setMarital_Status(false);
+		emp.setDate_Of_Birth(new Date("08/08/1993"));
+		emp.setCity("Hyderabad");
+		emp.setSupervisor(32057l);
+		emp.setGender("male");
+		
+		assertEquals("testUpdateEmployee Failed",true,employeeService.update(emp));
+		
+		
+	}
 	
 
 }

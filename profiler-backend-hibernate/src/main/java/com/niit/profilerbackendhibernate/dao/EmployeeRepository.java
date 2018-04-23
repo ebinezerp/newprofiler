@@ -16,6 +16,8 @@ public interface EmployeeRepository {
 	public List<Employee>  findApproved();
 	public List<Employee>  findUnApproved();
 	public List<Employee>  findRejected();
+	public List<Employee>  findBySkill(String skill);
+	public List<Employee>  findByCertification(String certificationName);
 	
 	
 }
